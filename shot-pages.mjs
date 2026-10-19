@@ -26,21 +26,15 @@ for (const w of widths) {
   const page = await context.newPage();
   for (const p of pages) {
     const name = p === '/' ? 'home' : p.slice(1);
-    const url = base + (p === '/' ? '/' : p + '/'); // Astro trailing slash dirs
+    const url = base + p;
     console.log('shot', w, url);
-    try {
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
-    } catch (e) {
-      // try without trailing slash
-      await page.goto(base + p, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    }
-    await page.waitForTimeout(800);
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+    await page.waitForTimeout(600);
     await page.screenshot({
       path: path.join(outDir, `${name}_${w}.png`),
       fullPage: true,
     });
   }
-  // mobile menu open on home
   if (w === 390) {
     await page.goto(base + '/', { waitUntil: 'networkidle', timeout: 60000 });
     await page.waitForTimeout(400);
@@ -54,7 +48,6 @@ for (const w of widths) {
   if (w === 1280) {
     await page.goto(base + '/', { waitUntil: 'networkidle', timeout: 60000 });
     await page.waitForTimeout(400);
-    // hover services
     await page.hover('.nav-folder');
     await page.waitForTimeout(300);
     await page.screenshot({ path: path.join(outDir, 'home_1280_services-dropdown.png'), fullPage: false });

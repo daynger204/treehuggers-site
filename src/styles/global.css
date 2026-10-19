@@ -380,7 +380,7 @@ p {
   margin-bottom: 1.25rem;
 }
 .card-block p {
-  color: var(--color-green);
+  color: var(--color-body);
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -539,13 +539,14 @@ p {
 /* ===== Hero (home) ===== */
 .hero {
   position: relative;
-  min-height: 520px;
+  min-height: 600px;
+  height: clamp(560px, 52vw, 640px);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--color-cream);
-  padding: calc(var(--header-height) + 2rem) 4vw 4rem;
+  padding: calc(var(--header-height) + 1.5rem) 4vw 3.5rem;
   overflow: hidden;
 }
 .hero__bg {
@@ -598,38 +599,48 @@ p {
 .home-intro p {
   max-width: 860px;
   margin: 0 auto;
-  color: var(--color-green);
-  font-size: 1.2rem;
+  color: var(--color-body);
+  font-size: 1.192rem;
   font-weight: 500;
 }
-.home-intro strong { font-weight: 700; }
+.home-intro strong,
+.home-intro b {
+  color: var(--color-green);
+  font-weight: 700;
+}
 
 .home-cards {
-  padding: 2rem 0 4rem;
+  padding: 1.5rem 0 3.25rem;
+}
+.home-cards .grid-2--images {
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 1.75rem;
+}
+.home-cards .btn {
+  padding: 0.85rem 1.15rem;
+  font-size: 0.85rem;
 }
 
 /* ===== Footer ===== */
 .site-footer {
   position: relative;
-  background: var(--color-green);
   color: var(--color-cream);
   overflow: hidden;
-}
-.site-footer__bg {
-  position: absolute;
-  inset: 0;
+  /* Leaf pattern is the base layer; green overlay at 0.9 matches live tokens */
+  background-color: var(--color-green);
   background-image: url('/images/leaf-pattern.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.35;
-  mix-blend-mode: soft-light;
-  pointer-events: none;
+  background-repeat: no-repeat;
 }
-.site-footer__overlay {
+.site-footer::before {
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 107, 55, 0.9);
   pointer-events: none;
+  z-index: 0;
 }
 .site-footer__inner {
   position: relative;
@@ -637,8 +648,9 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  padding: 3rem 8%;
+  padding: 2.75rem 8% 2.5rem;
   align-items: start;
+  min-height: 220px;
 }
 .site-footer h4 {
   color: var(--color-cream);
@@ -661,12 +673,16 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 140px;
+  align-self: stretch;
 }
 .social-row {
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: center;
 }
 .social-row a {
   display: flex;
@@ -676,11 +692,37 @@ p {
   border: 1.5px solid var(--color-cream);
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--color-cream);
 }
 .social-row a:hover { background: rgba(253,252,229,0.15); }
 .social-row svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* BACK TO TOP — cream fill, green text (must beat footer a { color: cream }) */
+.site-footer a.btn--back-top,
+a.btn--back-top {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  text-align: center;
+  padding: 1rem 1.3rem;
+  border-radius: var(--radius-leaf);
+  border: none;
+  cursor: pointer;
+  line-height: 1.2;
+  background: var(--color-cream) !important;
+  color: var(--color-green) !important;
+  margin-top: auto;
+}
+.site-footer a.btn--back-top:hover {
+  opacity: 0.9;
+  color: var(--color-green) !important;
+}
+
 .site-footer__right {
   text-align: right;
 }
@@ -748,12 +790,24 @@ p {
   }
 
   .hero {
-    min-height: 460px;
-    padding-top: calc(var(--header-height) + 1.5rem);
+    min-height: 520px;
+    height: auto;
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 3rem;
   }
   .hero .hero-sub { font-size: 1.25rem; }
-  .hero__ctas { flex-direction: column; align-items: center; }
-  .hero__ctas .btn { min-width: 200px; }
+  .hero__ctas {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .hero__ctas .btn {
+    min-width: 0;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
 
   .site-footer__inner {
     grid-template-columns: 1fr;
@@ -765,11 +819,28 @@ p {
   .site-quote blockquote { font-size: 1.35rem; }
 
   /* Mobile: centre footer content (from custom CSS) */
-  .site-footer * {
+  .site-footer,
+  .site-footer__inner,
+  .site-footer__left,
+  .site-footer__center,
+  .site-footer__right,
+  .site-footer h4,
+  .site-footer p,
+  .site-footer .footer-pages {
     text-align: center !important;
-    justify-content: center !important;
+  }
+  .site-footer__inner {
+    justify-items: center;
   }
   .social-row { justify-content: center; }
+  .site-footer__center {
+    min-height: 0;
+    order: -1;
+  }
+  .site-footer a.btn--back-top {
+    color: var(--color-green) !important;
+    background: var(--color-cream) !important;
+  }
 }
 
 @media screen and (min-width: 768px) {
