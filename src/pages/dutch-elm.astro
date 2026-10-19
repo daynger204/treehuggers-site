@@ -1,0 +1,16 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentBlocks from '../components/ContentBlocks.astro';
+const page = await getEntry('pages', 'dutch-elm');
+if (!page) throw new Error('Missing pages/dutch-elm');
+const d = page.data;
+---
+<BaseLayout title={d.title} description={d.description} canonicalPath={d.canonicalPath} ogTitle={d.ogTitle}>
+  <section class="page-section inner-hero-space">
+    <div class="container prose">
+      <h1 class="page-title">{d.h1}</h1>
+      <ContentBlocks blocks={d.blocks} images={d.images} />
+    </div>
+  </section>
+</BaseLayout>

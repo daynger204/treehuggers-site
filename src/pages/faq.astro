@@ -1,0 +1,49 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = await getEntry('pages', 'faq');
+if (!page) throw new Error('Missing pages/faq');
+const d = page.data;
+
+const faqs = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(
+  faqs.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  })
+);
+
+function answerAsHtml(text: string) {
+  const lines = text.split('\n').map((l) => l.trim()).filter(Boolean);
+  if (lines.length <= 1) return `<p>${escapeHtml(text.trim())}</p>`;
+  const [first, ...rest] = lines;
+  if (rest.length >= 2) {
+    return `<p>${escapeHtml(first)}</p><ul>${rest.map((r) => `<li>${escapeHtml(r.replace(/,$/, ''))}</li>`).join('')}</ul>`;
+  }
+  return lines.map((l) => `<p>${escapeHtml(l)}</p>`).join('');
+}
+function escapeHtml(s: string) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+---
+
+<BaseLayout title={d.title} description={d.description} canonicalPath={d.canonicalPath} ogTitle={d.ogTitle}>
+  <section class="page-section inner-hero-space">
+    <div class="container">
+      <h1 class="page-title">{d.h1}</h1>
+      <div class="faq-list">
+        {
+          rendered.map(({ entry, Content }) => (
+            <details class="faq-item">
+              <summary>{entry.data.question}</summary>
+              <div class="faq-answer">
+                <Content />
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resolveImage } from '../lib/images';
+
+const page = await getEntry('pages', 'links');
+if (!page) throw new Error('Missing pages/links');
+const d = page.data;
+const skyline = resolveImage(d.images, 'skyline');
+---
+
+<BaseLayout title={d.title} description={d.description} canonicalPath={d.canonicalPath} ogTitle={d.ogTitle}>
+  <section class="page-section inner-hero-space">
+    <div class="container">
+      <h1 class="page-title">{d.h1}</h1>
+      {
+        d.linkGroups!.map((group) => (
+          <div class="links-group">
+            <h3>{group.heading}</h3>
+            <ul>
+              {group.links.map((l) => (
+                <li>
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+      <div class="img-leaf" style="max-width: 1024px; margin: 2rem auto;">
+        <Image src={skyline.src} alt={skyline.alt} widths={[640, 900, 1200]} sizes="(max-width: 767px) 90vw, 900px" quality={80} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

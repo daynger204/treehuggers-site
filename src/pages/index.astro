@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resolveImage } from '../lib/images';
+
+const page = await getEntry('pages', 'home');
+if (!page) throw new Error('Missing pages/home content');
+const d = page.data;
+const heroImg = resolveImage(d.images, d.hero!.imageId);
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.description}
+  canonicalPath={d.canonicalPath}
+  ogTitle={d.ogTitle}
+  flushHeader={d.flushHeader}
+>
+  <section class="hero">
+    <div class="hero__bg">
+      <Image src={heroImg.src} alt={heroImg.alt} widths={[800, 1280, 1678]} sizes="100vw" quality={80} />
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <h1>{d.h1}</h1>
+      <p class="hero-sub">{d.hero!.subhead}</p>
+      <div class="hero__ctas">
+        <a class="btn btn--cream" href={d.hero!.primaryCta.href}>{d.hero!.primaryCta.label}</a>
+        <a class="btn btn--outline-cream" href={d.hero!.secondaryCta.href}>{d.hero!.secondaryCta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-intro">
+    <div class="container">
+      {
+        d.blocks.map((b) =>
+          b.type === 'paragraph' ? (
+            <p set:html={b.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+          ) : null
+        )
+      }
+    </div>
+  </section>
+
+  <section class="home-cards">
+    <div class="container-wide">
+      <div class="grid-2 grid-2--images">
+        {
+          d.homeCards!.map((card) => {
+            const img = resolveImage(d.images, card.imageId);
+            return (
+              <div class="card-block">
+                <div class="img-wrap img-leaf">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    widths={[400, 640, 900]}
+                    sizes="(max-width: 767px) 90vw, 45vw"
+                    quality={80}
+                  />
+                </div>
+                <p>{card.caption}</p>
+                <a class="btn btn--primary" href={card.buttonHref}>
+                  {card.buttonLabel}
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,122 @@
+---
+import { Image } from 'astro:assets';
+import { resolveImage } from '../lib/images';
+
+interface ImgRef {
+  id: string;
+  file: string;
+  alt: string;
+}
+interface Props {
+  blocks: any[];
+  images: ImgRef[];
+}
+const { blocks, images } = Astro.props;
+
+function formatText(text: string) {
+  // Allow intentional HTML; also convert **bold** markdown
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br />');
+}
+---
+
+{
+  blocks.map((block) => {
+    switch (block.type) {
+      case 'paragraph':
+        return <p set:html={formatText(block.text)} />;
+      case 'heading': {
+        if (block.level === 2) return <h2>{block.text}</h2>;
+        if (block.level === 4) return <h4>{block.text}</h4>;
+        return <h3>{block.text}</h3>;
+      }
+      case 'image': {
+        const img = resolveImage(images, block.imageId);
+        const style = block.maxWidth
+          ? `max-width: ${block.maxWidth}px; margin: 1.5rem auto;`
+          : 'margin: 1.5rem auto;';
+        return (
+          <div>
+            <div class="img-leaf" style={style}>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                widths={[400, 640, 900, 1200]}
+                sizes="(max-width: 767px) 90vw, 800px"
+                quality={80}
+              />
+            </div>
+            {block.caption && <p class="text-center mt-1">{block.caption}</p>}
+          </div>
+        );
+      }
+      case 'imagePair': {
+        const left = resolveImage(images, block.leftId);
+        const right = resolveImage(images, block.rightId);
+        return (
+          <div class="grid-2 grid-2--images mt-2">
+            <div>
+              <div class="img-leaf">
+                <Image
+                  src={left.src}
+                  alt={left.alt}
+                  widths={[400, 640, 900]}
+                  sizes="(max-width: 767px) 90vw, 45vw"
+                  quality={80}
+                />
+              </div>
+              {block.leftCaption && <p class="text-center mt-1">{block.leftCaption}</p>}
+            </div>
+            <div>
+              <div class="img-leaf">
+                <Image
+                  src={right.src}
+                  alt={right.alt}
+                  widths={[400, 640, 900]}
+                  sizes="(max-width: 767px) 90vw, 45vw"
+                  quality={80}
+                />
+              </div>
+              {block.rightCaption && <p class="text-center mt-1">{block.rightCaption}</p>}
+            </div>
+          </div>
+        );
+      }
+      case 'list':
+        return (
+          <ul class="content-list">
+            {block.items.map((item: string) => (
+              <li set:html={item} />
+            ))}
+          </ul>
+        );
+      case 'button':
+        return (
+          <p class="text-center mt-2">
+            <a class="btn btn--primary" href={block.href}>
+              {block.label}
+            </a>
+          </p>
+        );
+      case 'video': {
+        const q = block.srcExtra ? `?${block.srcExtra}` : '?feature=oembed';
+        return (
+          <div class="video-wrap">
+            <iframe
+              src={`https://www.youtube.com/embed/${block.youtubeId}${q}`}
+              title={block.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            />
+          </div>
+        );
+      }
+      case 'html':
+        return <div set:html={block.html} />;
+      default:
+        return null;
+    }
+  })
+}

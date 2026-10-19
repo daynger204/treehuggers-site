@@ -1,0 +1,142 @@
+---
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '/' } = Astro.props;
+const clientLogin =
+  'https://clienthub.getjobber.com/client_hubs/473666f9-f1da-40ea-b1b6-357fe97c9008/login/new?source=share_login';
+
+const services = [
+  { href: '/what-we-do', label: 'What We Do' },
+  { href: '/caterpillars', label: 'Btk Canker Worm Control' },
+  { href: '/fertilizer', label: 'Deep Root Fertilizer' },
+  { href: '/emeraldashborer', label: 'Emerald Ash Borer' },
+  { href: '/dutch-elm', label: 'Dutch Elm Disease' },
+];
+
+const isServices =
+  services.some((s) => currentPath === s.href) || currentPath === '/what-we-do';
+---
+
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/" aria-label="Treehuggers home">
+      <img src="/images/logo-beige.png" alt="Treehuggers" width="211" height="85" />
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary">
+      <a href="/" class:list={{ 'is-active': currentPath === '/' }}>Home</a>
+      <div class="nav-folder" data-folder>
+        <button
+          type="button"
+          class="nav-folder__trigger"
+          aria-expanded="false"
+          aria-haspopup="true"
+          data-folder-trigger
+        >
+          Services
+          <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+        </button>
+        <div class="nav-folder__panel" role="menu">
+          {services.map((s) => (
+            <a href={s.href} role="menuitem">{s.label}</a>
+          ))}
+        </div>
+      </div>
+      <a href="/faq" class:list={{ 'is-active': currentPath === '/faq' }}>FAQ</a>
+      <a href="/links" class:list={{ 'is-active': currentPath === '/links' }}>Helpful Links</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
+      <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
+    </div>
+
+    <button type="button" class="burger" aria-label="Open menu" data-burger>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <div class="mobile-menu__top">
+    <a href="/" aria-label="Treehuggers home">
+      <img src="/images/logo-beige.png" alt="Treehuggers" width="180" height="72" />
+    </a>
+    <button type="button" class="mobile-menu__close" aria-label="Close menu" data-menu-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+  </div>
+
+  <nav class="mobile-menu__nav" data-mobile-root aria-label="Mobile">
+    <a href="/">Home</a>
+    <button type="button" class="mobile-link" data-open-services>
+      Services <span aria-hidden="true">&gt;</span>
+    </button>
+    <a href="/faq">FAQ</a>
+    <a href="/links">Helpful Links</a>
+    <div class="mobile-menu__ctas">
+      <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
+      <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
+    </div>
+  </nav>
+
+  <nav class="mobile-submenu" data-mobile-services aria-label="Services">
+    <button type="button" class="mobile-link" data-back-services>
+      <span aria-hidden="true">&lt;</span> Back
+    </button>
+    {services.map((s) => (
+      <a href={s.href}>{s.label}</a>
+    ))}
+  </nav>
+</div>
+
+<script>
+  const burger = document.querySelector('[data-burger]');
+  const menu = document.getElementById('mobile-menu');
+  const closeBtn = document.querySelector('[data-menu-close]');
+  const root = document.querySelector('[data-mobile-root]');
+  const sub = document.querySelector('[data-mobile-services]');
+  const openServices = document.querySelector('[data-open-services]');
+  const backServices = document.querySelector('[data-back-services]');
+
+  function openMenu() {
+    if (!menu) return;
+    menu.hidden = false;
+    menu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    if (!menu) return;
+    menu.classList.remove('is-open');
+    menu.hidden = true;
+    document.body.style.overflow = '';
+    root?.classList.remove('is-hidden');
+    sub?.classList.remove('is-open');
+  }
+
+  burger?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  openServices?.addEventListener('click', () => {
+    root?.classList.add('is-hidden');
+    sub?.classList.add('is-open');
+  });
+  backServices?.addEventListener('click', () => {
+    root?.classList.remove('is-hidden');
+    sub?.classList.remove('is-open');
+  });
+
+  // Desktop folder keyboard support
+  document.querySelectorAll('[data-folder]').forEach((folder) => {
+    const trigger = folder.querySelector('[data-folder-trigger]');
+    trigger?.addEventListener('click', () => {
+      folder.classList.toggle('is-open');
+      const open = folder.classList.contains('is-open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+</script>
