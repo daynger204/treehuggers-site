@@ -784,3 +784,17 @@ p {
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+/* Mobile CTAs must not inherit 30px nav link styles */
+.mobile-menu__ctas a.btn {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  width: 100%;
+  max-width: 280px;
+}
+.mobile-menu__nav > .mobile-menu__ctas {
+  width: 100%;
+  align-items: center;
+}
