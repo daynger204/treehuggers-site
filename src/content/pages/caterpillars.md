@@ -21,7 +21,8 @@ blocks:
     text: "There are many chemical solutions out there, these can bring harm to both people and nature. Treehuggers uses only Eco-friendly Btk spray to ensure the health of both people and the environment. Our Btk only targets leaf eating caterpillars, beneficial insects and animals are unharmed."
   - type: image
     imageId: cankerworm
-    maxWidth: 480
+    ratio: "419 / 252"
+    ratioMobile: "343 / 269"
   - type: paragraph
     text: "Our experts use special high pressure spray equipment to apply and customize the solution according to the type of disease or pest, and type of tree."
   - type: paragraph
@@ -48,13 +49,17 @@ blocks:
       - "After repeated worm attacks, trees may be more susceptible to secondary insects and diseases such as Dutch Elm Disease"
       - "To date, this is the safest and most effective control available"
   - type: paragraph
+    size: large
     text: "Our sprayers are able to reach high trees in order to ensure proper coverage."
   - type: paragraph
     text: "If you’re interested in receiving a quote from one of our tree spraying experts:"
   - type: button
     label: "Request a Quote"
     href: "/book-now"
+    align: start
   - type: imagePair
     leftId: spray1
     rightId: spray2
+    ratio: "333 / 483"
+    ratioMobile: "343 / 234"
 ---

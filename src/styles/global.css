@@ -566,10 +566,84 @@ p {
 .prose {
   max-width: none;
 }
-.prose h3 { margin-top: 1.75rem; }
+.prose > .page-title { margin-bottom: 0.7rem; }
+.prose h3 {
+  margin-top: 1.75rem;
+  color: var(--color-heading-medium);
+}
 .prose a {
   color: var(--color-green);
   text-decoration: underline;
+}
+.prose .content-list li { font-size: 1rem; }
+.prose .grid-2--images { gap: 12px; }
+
+p.text-large {
+  margin-top: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Side-by-side bands measured on the live Squarespace pages at 1440px. */
+.split {
+  display: grid;
+  grid-template-columns: var(--split-left, 1fr) var(--split-right, 1fr);
+  gap: var(--split-gap, 54px);
+  align-items: start;
+  margin: 2rem 0;
+}
+.split--open {
+  --split-left: 547fr;
+  --split-right: 419fr;
+  --split-gap: 54px;
+}
+.split--how {
+  --split-left: 504fr;
+  --split-right: 419fr;
+  --split-gap: 97px;
+}
+.split--photos {
+  --split-left: 290fr;
+  --split-right: 676fr;
+  --split-gap: 54px;
+}
+.split--photos .split__copy { padding-top: 66px; }
+.split--how .split__copy { padding-top: 33px; }
+.split--photos .grid-2--images { gap: 10px; margin-top: 0; }
+.split--half {
+  --split-left: 461fr;
+  --split-right: 461fr;
+  --split-gap: 97px;
+}
+.split--benefits {
+  --split-left: 461fr;
+  --split-right: 504fr;
+  --split-gap: 55px;
+}
+.prose .split__copy > :first-child,
+.prose .split__media > :first-child { margin-top: 0; }
+.prose .split__media .img-leaf,
+.prose .split__media .img-spaced {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+.prose .split__media .video-wrap { margin: 0 0 12px; }
+.prose .split__media .video-wrap:last-of-type { margin-bottom: 0.35rem; }
+.stack-band { margin: 1.35rem 0; }
+.stack-band > :first-child { margin-top: 0; }
+.btn-row { margin: 0.85rem 0 0; }
+.btn-row--start { text-align: start; }
+
+.img-spaced { margin: 1.5rem auto; }
+.img-frame {
+  width: 100%;
+  aspect-ratio: var(--frame);
+}
+.img-frame picture,
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .links-layout {
@@ -862,10 +936,16 @@ a.btn--back-top {
   .grid-2,
   .grid-2--images,
   .book-intro,
-  .links-layout {
+  .links-layout,
+  .split {
     grid-template-columns: 1fr;
     gap: 1.75rem;
   }
+  .split--media-first .split__media { order: -1; }
+  .split--photos .split__copy,
+  .split--how .split__copy { padding-top: 0; }
+  .btn-row--start { text-align: center; }
+  .img-frame { aspect-ratio: var(--frame-m, var(--frame)); }
 
   .hero {
     min-height: 560px;

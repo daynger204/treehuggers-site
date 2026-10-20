@@ -5,12 +5,27 @@ import ContentBlocks from '../components/ContentBlocks.astro';
 const page = await getEntry('pages', 'dutch-elm');
 if (!page) throw new Error('Missing pages/dutch-elm');
 const d = page.data;
+const blocks = d.blocks;
 ---
 <BaseLayout title={d.title} description={d.description} canonicalPath={d.canonicalPath} ogTitle={d.ogTitle}>
   <section class="page-section inner-hero-space">
     <div class="container prose">
       <h2 class="page-title">{d.h1}</h2>
-      <ContentBlocks blocks={d.blocks} images={d.images} />
+      <div class="text-center stack-band">
+        <ContentBlocks blocks={blocks.slice(0, 2)} images={d.images} />
+      </div>
+      <div class="split split--benefits split--media-first">
+        <div class="split__copy">
+          <ContentBlocks blocks={blocks.slice(3, 9)} images={d.images} />
+        </div>
+        <div class="split__media">
+          <ContentBlocks blocks={blocks.slice(2, 3)} images={d.images} />
+        </div>
+      </div>
+      <ContentBlocks blocks={blocks.slice(9, 10)} images={d.images} />
+      <div class="text-center stack-band">
+        <ContentBlocks blocks={blocks.slice(10)} images={d.images} />
+      </div>
     </div>
   </section>
 </BaseLayout>

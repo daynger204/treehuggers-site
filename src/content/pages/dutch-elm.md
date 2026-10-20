@@ -21,7 +21,8 @@ blocks:
     text: "Our immunization services offer hope for Elms trees. This not only extends the life of the trees but also preserves the natural beauty and biodiversity of our neighbourhoods."
   - type: image
     imageId: half
-    maxWidth: 560
+    ratio: "504 / 549"
+    ratioMobile: "343 / 304"
   - type: heading
     level: 3
     text: "Benefits of Immunization from Treehuggers:"
@@ -36,11 +37,14 @@ blocks:
   - type: button
     label: "BOOK NOW"
     href: "/book-now"
+    align: start
   - type: imagePair
     leftId: bark
     rightId: marked
     leftCaption: "Elm tree damage"
     rightCaption: "Elm tree marked for removal"
+    ratio: "504 / 351"
+    ratioMobile: "343 / 269"
   - type: paragraph
     text: "Choose Treehuggers for DED immunization and join us in protecting our elms for generations to come."
 ---
