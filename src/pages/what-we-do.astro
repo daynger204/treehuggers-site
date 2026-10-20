@@ -13,7 +13,7 @@ const team = resolveImage(d.images, 'team');
 <BaseLayout title={d.title} description={d.description} canonicalPath={d.canonicalPath} ogTitle={d.ogTitle}>
   <section class="page-section inner-hero-space">
     <div class="container">
-      <h1 class="page-title">{d.h1}</h1>
+      <h2 class="page-title">{d.h1}</h2>
       <div class="page-intro">
         {d.blocks.filter((b) => b.type === 'paragraph').map((b) => <p>{b.type === 'paragraph' && b.text}</p>)}
       </div>
