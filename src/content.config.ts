@@ -8,10 +8,35 @@ const imageRef = z.object({
 });
 
 const block = z.discriminatedUnion('type', [
-  z.object({ type: z.literal('paragraph'), text: z.string() }),
-  z.object({ type: z.literal('heading'), level: z.union([z.literal(2), z.literal(3), z.literal(4)]), text: z.string() }),
-  z.object({ type: z.literal('image'), imageId: z.string(), caption: z.string().optional(), maxWidth: z.number().optional() }),
-  z.object({ type: z.literal('imagePair'), leftId: z.string(), rightId: z.string(), leftCaption: z.string().optional(), rightCaption: z.string().optional() }),
+  z.object({
+    type: z.literal('paragraph'),
+    text: z.string(),
+    align: z.enum(['center', 'start']).optional(),
+    size: z.enum(['large']).optional(),
+  }),
+  z.object({
+    type: z.literal('heading'),
+    level: z.union([z.literal(2), z.literal(3), z.literal(4)]),
+    text: z.string(),
+    align: z.enum(['center', 'start']).optional(),
+  }),
+  z.object({
+    type: z.literal('image'),
+    imageId: z.string(),
+    caption: z.string().optional(),
+    maxWidth: z.number().optional(),
+    ratio: z.string().optional(),
+    ratioMobile: z.string().optional(),
+  }),
+  z.object({
+    type: z.literal('imagePair'),
+    leftId: z.string(),
+    rightId: z.string(),
+    leftCaption: z.string().optional(),
+    rightCaption: z.string().optional(),
+    ratio: z.string().optional(),
+    ratioMobile: z.string().optional(),
+  }),
   z.object({ type: z.literal('list'), items: z.array(z.string()) }),
   z.object({
     type: z.literal('richList'),
@@ -22,7 +47,12 @@ const block = z.discriminatedUnion('type', [
       })
     ),
   }),
-  z.object({ type: z.literal('button'), label: z.string(), href: z.string() }),
+  z.object({
+    type: z.literal('button'),
+    label: z.string(),
+    href: z.string(),
+    align: z.enum(['center', 'start']).optional(),
+  }),
   z.object({ type: z.literal('video'), youtubeId: z.string(), title: z.string(), srcExtra: z.string().optional() }),
   z.object({ type: z.literal('html'), html: z.string() }),
 ]);
