@@ -809,6 +809,7 @@ p {
   max-width: 848px;
   margin: 0 auto;
   color: var(--color-body);
+  font-size: 20px;
   font-weight: 500;
 }
 .home-intro strong,
