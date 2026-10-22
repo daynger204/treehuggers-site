@@ -944,6 +944,7 @@ a.btn--back-top {
 }
 .footer-copy {
   margin-top: 1rem !important;
+  font-size: 12px;
   opacity: 0.9;
 }
 
