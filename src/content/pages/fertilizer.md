@@ -11,6 +11,8 @@ images:
 blocks:
   - type: paragraph
     text: "At Treehuggers, we offer a variety of deep root fertilizers tailored to meet the specific needs of your trees. Our fertilizers are selected based on thorough soil testing, taking into account the unique growing conditions of your landscape. Whether your trees are facing nutrient deficiencies, poor soil quality, or other challenges, our deep root fertilizers are designed to provide the necessary nutrients to support healthy growth. With options for different tree species and conditions, our fertilizers aim to enhance root development, improve tree vigor, and promote overall tree health. Choose Treehuggers for specialized deep root fertilizers that nurture your trees from the ground up."
+    center: true
+  - type: divider
   - type: heading
     level: 3
     text: "What Is Deep Root Fertilization?"
@@ -21,26 +23,22 @@ blocks:
     text: "How Is Deep Root Fertilization Different from Traditional Tree Fertilization?"
   - type: paragraph
     text: "Deep root fertilization is different from traditional fertilization in a few ways. First, as we mentioned, it involves injecting fertilizer directly to the roots of your trees and shrubs. Traditional fertilization, on the other hand, generally involves spreading fertilizer around the base of your plants"
-  - type: image
+  - type: imageText
     imageId: photo
-    maxWidth: 560
-  - type: heading
-    level: 3
-    text: "Does Your Tree Need Deep Root Fertilization?"
-  - type: paragraph
-    text: "A tree in distress is the perfect match for a treatment like deep root fertilization. The following are often signs that your tree needs some help:"
-  - type: list
+    heading: "Does Your Tree Need Deep Root Fertilization?"
+    paragraphs:
+      - "A tree in distress is the perfect match for a treatment like deep root fertilization. The following are often signs that your tree needs some help:"
     items:
       - "Tree growth is very slow or nonexistent"
       - "Leaves are smaller than normal"
       - "Foliage is decreasing"
       - "Branches show signs of dieback"
       - "Leaves turn oddly discolored or look chlorotic"
-  - type: button
-    label: "BOOK NOW"
-    href: "/book-now"
-  - type: paragraph
-    text: "Book a consultation with us to assess the health status and needs of the tree and start a deep root fertilization treatment to help revive your beautiful arbors."
+    button:
+      label: "BOOK NOW"
+      href: "/book-now"
+    afterParagraphs:
+      - '<strong>Book a consultation with us to assess the health status and needs of the tree and start a deep root fertilization treatment to help revive your beautiful arbors.</strong>'
   - type: heading
     level: 3
     text: "Why Is Deep Root Tree Fertilization So Important?"

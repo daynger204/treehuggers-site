@@ -15,30 +15,20 @@ images:
     file: dsc07198.jpg
     alt: "A person in a green shirt spraying a tree with a hose in a park or yard with green grass and trees, a quick spray stand with a sign that says 'Tree Spraying in Progress', and a professional truck parked nearby."
 blocks:
-  - type: paragraph
-    text: "Trees are living organisms that can suffer from disease and damage from pests and insects. Addressing these problems promptly and properly is paramount to the health of your trees."
-  - type: paragraph
-    text: "There are many chemical solutions out there, these can bring harm to both people and nature. Treehuggers uses only Eco-friendly Btk spray to ensure the health of both people and the environment. Our Btk only targets leaf eating caterpillars, beneficial insects and animals are unharmed."
-  - type: image
+  - type: imageText
     imageId: cankerworm
-    maxWidth: 480
+    tightTop: true
+    spaceAfter: 40
+    paragraphs:
+      - "Trees are living organisms that can suffer from disease and damage from pests and insects. Addressing these problems promptly and properly is paramount to the health of your trees."
+      - "There are many chemical solutions out there, these can bring harm to both people and nature. Treehuggers uses only Eco-friendly Btk spray to ensure the health of both people and the environment. Our Btk only targets leaf eating caterpillars, beneficial insects and animals are unharmed."
   - type: paragraph
     text: "Our experts use special high pressure spray equipment to apply and customize the solution according to the type of disease or pest, and type of tree."
   - type: paragraph
     text: "Several tree species are highly prospected and targeted by leaf eating caterpillars. Our professional team are experts in identifying what tree landscape is prone to be attacked by tree diseases and pest insects."
-  - type: video
-    youtubeId: "0KLdKfQloSk"
-    title: "Fall Cankerworm Moth Caterpillar (Geometridae: Alsophila pometaria)"
-  - type: video
-    youtubeId: "Mqz3jzABGF8"
-    title: "DiPel Cry toxins pest control"
-    srcExtra: "feature=emb_rel_end&wmode=opaque&enablejsapi=1"
-  - type: paragraph
-    text: "This video shows a step-by-step process of how Cry toxins found in DiPel help control lepidopteran pests naturally, without affecting beneficial insects and ..."
-  - type: heading
-    level: 3
-    text: "How does it work?"
-  - type: list
+  - type: divider
+  - type: videoList
+    heading: "How does it work?"
     items:
       - "We use the most environmentally friendly control method available"
       - "We spray your trees with Btk (Bacillus thuringiensis var. kurstaki)"
@@ -47,14 +37,20 @@ blocks:
       - "Btk is completely safe for animals, humans, beneficial insects and edible plants"
       - "After repeated worm attacks, trees may be more susceptible to secondary insects and diseases such as Dutch Elm Disease"
       - "To date, this is the safest and most effective control available"
-  - type: paragraph
-    text: "Our sprayers are able to reach high trees in order to ensure proper coverage."
-  - type: paragraph
-    text: "If you’re interested in receiving a quote from one of our tree spraying experts:"
-  - type: button
-    label: "Request a Quote"
-    href: "/book-now"
-  - type: imagePair
+    videos:
+      - youtubeId: "0KLdKfQloSk"
+        title: "Fall Cankerworm Moth Caterpillar (Geometridae: Alsophila pometaria)"
+      - youtubeId: "Mqz3jzABGF8"
+        title: "DiPel Cry toxins pest control"
+        srcExtra: "feature=emb_rel_end&wmode=opaque&enablejsapi=1"
+    caption: "This video shows a step-by-step process of how Cry toxins found in DiPel help control lepidopteran pests naturally, without affecting beneficial insects and ..."
+  - type: textImagePair
+    paragraphs:
+      - "Our sprayers are able to reach high trees in order to ensure proper coverage."
+      - "If you’re interested in receiving a quote from one of our tree spraying experts:"
+    button:
+      label: "Request a Quote"
+      href: "/book-now"
     leftId: spray1
     rightId: spray2
 ---

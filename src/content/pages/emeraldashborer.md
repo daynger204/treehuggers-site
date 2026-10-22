@@ -39,7 +39,7 @@ blocks:
     href: "/book-now"
   - type: image
     imageId: treeazin
-    maxWidth: 640
+    maxWidth: 989
   - type: paragraph
     text: "Treehuggers has been helping Manitoba communities plan for, and respond to, the Emerald Ash Borer invasion. Our Tree Care Specialists have almost 15 years of experience in detecting, preventing, and treating trees for diseases and insects, such as EAB."
   - type: paragraph
