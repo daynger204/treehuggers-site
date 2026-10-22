@@ -10,7 +10,14 @@ const imageRef = z.object({
 const block = z.discriminatedUnion('type', [
   z.object({ type: z.literal('paragraph'), text: z.string(), center: z.boolean().optional() }),
   z.object({ type: z.literal('heading'), level: z.union([z.literal(2), z.literal(3), z.literal(4)]), text: z.string() }),
-  z.object({ type: z.literal('image'), imageId: z.string(), caption: z.string().optional(), maxWidth: z.number().optional() }),
+  z.object({
+    type: z.literal('image'),
+    imageId: z.string(),
+    caption: z.string().optional(),
+    maxWidth: z.number().optional(),
+    ratio: z.string().optional(),
+    ratioMobile: z.string().optional(),
+  }),
   z.object({
     type: z.literal('imageText'),
     imageId: z.string(),
@@ -21,6 +28,10 @@ const block = z.discriminatedUnion('type', [
     afterParagraphs: z.array(z.string()).optional(),
     tightTop: z.boolean().optional(),
     spaceAfter: z.number().optional(),
+    layout: z.enum(['open', 'how', 'photos', 'half', 'benefits']).optional(),
+    mediaFirst: z.boolean().optional(),
+    ratio: z.string().optional(),
+    ratioMobile: z.string().optional(),
   }),
   z.object({ type: z.literal('divider') }),
   z.object({
@@ -31,6 +42,7 @@ const block = z.discriminatedUnion('type', [
       z.object({ youtubeId: z.string(), title: z.string(), srcExtra: z.string().optional() })
     ),
     caption: z.string().optional(),
+    layout: z.enum(['open', 'how', 'photos', 'half', 'benefits']).optional(),
   }),
   z.object({
     type: z.literal('textImagePair'),
@@ -38,8 +50,19 @@ const block = z.discriminatedUnion('type', [
     button: z.object({ label: z.string(), href: z.string() }),
     leftId: z.string(),
     rightId: z.string(),
+    layout: z.enum(['open', 'how', 'photos', 'half', 'benefits']).optional(),
+    ratio: z.string().optional(),
+    ratioMobile: z.string().optional(),
   }),
-  z.object({ type: z.literal('imagePair'), leftId: z.string(), rightId: z.string(), leftCaption: z.string().optional(), rightCaption: z.string().optional() }),
+  z.object({
+    type: z.literal('imagePair'),
+    leftId: z.string(),
+    rightId: z.string(),
+    leftCaption: z.string().optional(),
+    rightCaption: z.string().optional(),
+    ratio: z.string().optional(),
+    ratioMobile: z.string().optional(),
+  }),
   z.object({ type: z.literal('list'), items: z.array(z.string()) }),
   z.object({
     type: z.literal('richList'),

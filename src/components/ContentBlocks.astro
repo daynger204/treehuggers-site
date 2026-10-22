@@ -19,6 +19,12 @@ function formatText(text: string) {
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\n/g, '<br />');
 }
+
+function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
+  if (!block.ratio) return undefined;
+  const mobile = block.ratioMobile ? `; --frame-m: ${block.ratioMobile}` : '';
+  return `--frame: ${block.ratio}${mobile}`;
+}
 ---
 
 {
@@ -35,18 +41,21 @@ function formatText(text: string) {
       }
       case 'image': {
         const img = resolveImage(images, block.imageId);
-        const isWideImage = block.maxWidth >= 1020;
-        const style = block.maxWidth
-          ? `max-width: ${block.maxWidth}px;${isWideImage ? '' : ' margin: 1.5rem auto;'}`
-          : 'margin: 1.5rem auto;';
+        const framed = Boolean(block.ratio);
+        const isWideImage = framed || block.maxWidth >= 1020;
+        const style = framed
+          ? frameStyle(block)
+          : block.maxWidth
+            ? `max-width: ${block.maxWidth}px; margin: 1.5rem auto;`
+            : undefined;
         return (
-          <div>
-            <div class:list={['img-leaf', { 'img-leaf--wide': isWideImage }]} style={style}>
+          <div class="stack-band">
+            <div class:list={['img-leaf', { 'img-frame': framed, 'img-spaced': !framed }]} style={style}>
               <Image
                 src={img.src}
                 alt={img.alt}
                 widths={[400, 640, 900, 1200]}
-                sizes={isWideImage ? '(max-width: 767px) 90vw, 1020px' : '(max-width: 767px) 90vw, 800px'}
+                sizes={isWideImage ? '(max-width: 767px) 88vw, 1020px' : '(max-width: 767px) 88vw, 800px'}
                 quality={80}
               />
             </div>
@@ -56,20 +65,17 @@ function formatText(text: string) {
       }
       case 'imageText': {
         const img = resolveImage(images, block.imageId);
-        const style = [
-          block.spaceAfter ? `margin-bottom: ${block.spaceAfter}px` : '',
-        ].filter(Boolean).join('; ');
+        const style = block.spaceAfter ? `margin-bottom: ${block.spaceAfter}px` : undefined;
         return (
           <div
             class:list={[
-              'grid-2',
-              'grid-2--top',
-              'image-text-block',
-              { 'mt-2': !block.tightTop },
+              'split',
+              block.layout ? `split--${block.layout}` : 'split--half',
+              { 'split--media-first': block.mediaFirst, 'split--tight': block.tightTop },
             ]}
-            style={style || undefined}
+            style={style}
           >
-            <div>
+            <div class="split__copy">
               {block.heading && <h3>{block.heading}</h3>}
               {block.paragraphs.map((text: string) => <p set:html={formatText(text)} />)}
               {block.items && (
@@ -78,18 +84,18 @@ function formatText(text: string) {
                 </ul>
               )}
               {block.button && (
-                <p class="mt-2">
+                <p class="btn-row btn-row--start">
                   <a class="btn btn--primary" href={block.button.href}>{block.button.label}</a>
                 </p>
               )}
               {block.afterParagraphs?.map((text: string) => <p set:html={formatText(text)} />)}
             </div>
-            <div class="img-leaf">
+            <div class:list={['split__media', 'img-leaf', { 'img-frame': Boolean(block.ratio) }]} style={frameStyle(block)}>
               <Image
                 src={img.src}
                 alt={img.alt}
                 widths={[400, 640, 900, 1024]}
-                sizes="(max-width: 767px) 90vw, 50vw"
+                sizes="(max-width: 767px) 88vw, 520px"
                 quality={80}
               />
             </div>
@@ -100,14 +106,14 @@ function formatText(text: string) {
         return <hr class="content-divider" />;
       case 'videoList':
         return (
-          <div class="grid-2 grid-2--top video-list-block">
-            <div>
+          <div class:list={['split', 'video-list-block', block.layout ? `split--${block.layout}` : 'split--how']}>
+            <div class="split__copy">
               <h3>{block.heading}</h3>
               <ul class="content-list">
                 {block.items.map((item: string) => <li set:html={item} />)}
               </ul>
             </div>
-            <div class="video-list-block__media">
+            <div class="split__media video-list-block__media">
               {block.videos.map((video: { youtubeId: string; title: string; srcExtra?: string }) => {
                 const q = video.srcExtra ? `?${video.srcExtra}` : '?feature=oembed';
                 return (
@@ -129,20 +135,21 @@ function formatText(text: string) {
       case 'textImagePair': {
         const left = resolveImage(images, block.leftId);
         const right = resolveImage(images, block.rightId);
+        const frame = frameStyle(block);
         return (
-          <div class="grid-2 grid-2--top text-image-pair mt-2">
-            <div>
+          <div class:list={['split', block.layout ? `split--${block.layout}` : 'split--photos']}>
+            <div class="split__copy">
               {block.paragraphs.map((text: string) => <p set:html={formatText(text)} />)}
-              <p class="mt-2">
+              <p class="btn-row btn-row--start">
                 <a class="btn btn--primary" href={block.button.href}>{block.button.label}</a>
               </p>
             </div>
-            <div class="grid-2 grid-2--images text-image-pair__images">
-              <div class="img-leaf">
-                <Image src={left.src} alt={left.alt} widths={[400, 640, 900]} sizes="(max-width: 767px) 90vw, 22vw" quality={80} />
+            <div class="split__media grid-2 grid-2--images">
+              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
+                <Image src={left.src} alt={left.alt} widths={[400, 640, 900]} sizes="(max-width: 767px) 88vw, 333px" quality={80} />
               </div>
-              <div class="img-leaf">
-                <Image src={right.src} alt={right.alt} widths={[400, 640, 900]} sizes="(max-width: 767px) 90vw, 22vw" quality={80} />
+              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
+                <Image src={right.src} alt={right.alt} widths={[400, 640, 900]} sizes="(max-width: 767px) 88vw, 333px" quality={80} />
               </div>
             </div>
           </div>
@@ -151,27 +158,28 @@ function formatText(text: string) {
       case 'imagePair': {
         const left = resolveImage(images, block.leftId);
         const right = resolveImage(images, block.rightId);
+        const frame = frameStyle(block);
         return (
           <div class="grid-2 grid-2--images mt-2">
             <div>
-              <div class="img-leaf">
+              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
                 <Image
                   src={left.src}
                   alt={left.alt}
                   widths={[400, 640, 900]}
-                  sizes="(max-width: 767px) 90vw, 45vw"
+                  sizes="(max-width: 767px) 88vw, 504px"
                   quality={80}
                 />
               </div>
               {block.leftCaption && <p class="text-center mt-1">{block.leftCaption}</p>}
             </div>
             <div>
-              <div class="img-leaf">
+              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
                 <Image
                   src={right.src}
                   alt={right.alt}
                   widths={[400, 640, 900]}
-                  sizes="(max-width: 767px) 90vw, 45vw"
+                  sizes="(max-width: 767px) 88vw, 504px"
                   quality={80}
                 />
               </div>

@@ -19,6 +19,9 @@ blocks:
     imageId: cankerworm
     tightTop: true
     spaceAfter: 40
+    layout: open
+    ratio: "419 / 252"
+    ratioMobile: "343 / 269"
     paragraphs:
       - "Trees are living organisms that can suffer from disease and damage from pests and insects. Addressing these problems promptly and properly is paramount to the health of your trees."
       - "There are many chemical solutions out there, these can bring harm to both people and nature. Treehuggers uses only Eco-friendly Btk spray to ensure the health of both people and the environment. Our Btk only targets leaf eating caterpillars, beneficial insects and animals are unharmed."
@@ -28,6 +31,7 @@ blocks:
     text: "Several tree species are highly prospected and targeted by leaf eating caterpillars. Our professional team are experts in identifying what tree landscape is prone to be attacked by tree diseases and pest insects."
   - type: divider
   - type: videoList
+    layout: how
     heading: "How does it work?"
     items:
       - "We use the most environmentally friendly control method available"
@@ -45,6 +49,9 @@ blocks:
         srcExtra: "feature=emb_rel_end&wmode=opaque&enablejsapi=1"
     caption: "This video shows a step-by-step process of how Cry toxins found in DiPel help control lepidopteran pests naturally, without affecting beneficial insects and ..."
   - type: textImagePair
+    layout: photos
+    ratio: "333 / 483"
+    ratioMobile: "343 / 234"
     paragraphs:
       - "Our sprayers are able to reach high trees in order to ensure proper coverage."
       - "If you’re interested in receiving a quote from one of our tree spraying experts:"

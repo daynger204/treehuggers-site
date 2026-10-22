@@ -31,7 +31,7 @@ function escapeHtml(s: string) {
 <BaseLayout title={d.title} description={d.description} canonicalPath={d.canonicalPath} ogTitle={d.ogTitle}>
   <section class="page-section inner-hero-space">
     <div class="container">
-      <h1 class="page-title">{d.h1}</h1>
+      <h1 class="page-title page-title--h1">{d.h1}</h1>
       <div class="faq-list">
         {
           rendered.map(({ entry, Content }) => (

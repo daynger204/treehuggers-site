@@ -45,14 +45,14 @@ const heroImg = resolveImage(d.images, d.hero!.imageId);
   </section>
 
   <section class="home-cards">
-    <div class="container-wide">
+    <div class="container">
       <div class="grid-2 grid-2--images">
         {
           d.homeCards!.map((card) => {
             const img = resolveImage(d.images, card.imageId);
             return (
               <div class="card-block">
-                <div class="img-wrap img-leaf">
+                <div class="img-wrap img-leaf img-frame home-card-frame">
                   <Image
                     src={img.src}
                     alt={img.alt}

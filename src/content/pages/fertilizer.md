@@ -25,6 +25,10 @@ blocks:
     text: "Deep root fertilization is different from traditional fertilization in a few ways. First, as we mentioned, it involves injecting fertilizer directly to the roots of your trees and shrubs. Traditional fertilization, on the other hand, generally involves spreading fertilizer around the base of your plants"
   - type: imageText
     imageId: photo
+    layout: half
+    mediaFirst: true
+    ratio: "461 / 516"
+    ratioMobile: "343 / 339"
     heading: "Does Your Tree Need Deep Root Fertilization?"
     paragraphs:
       - "A tree in distress is the perfect match for a treatment like deep root fertilization. The following are often signs that your tree needs some help:"

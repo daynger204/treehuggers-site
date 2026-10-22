@@ -21,6 +21,10 @@ blocks:
     text: "Our immunization services offer hope for Elms trees. This not only extends the life of the trees but also preserves the natural beauty and biodiversity of our neighbourhoods."
   - type: imageText
     imageId: half
+    layout: benefits
+    mediaFirst: true
+    ratio: "504 / 549"
+    ratioMobile: "343 / 304"
     heading: "Benefits of Immunization from Treehuggers:"
     paragraphs:
       - '<strong>Healthier Trees:</strong> Our immunization process enhances the natural defenses of elms, ensuring they remain a vibrant part of our urban landscape.'
@@ -33,6 +37,8 @@ blocks:
   - type: imagePair
     leftId: bark
     rightId: marked
+    ratio: "504 / 351"
+    ratioMobile: "343 / 269"
     leftCaption: "Elm tree damage"
     rightCaption: "Elm tree marked for removal"
   - type: paragraph
