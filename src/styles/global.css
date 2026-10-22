@@ -899,17 +899,25 @@ a.btn--back-top {
 /* Book-now: customer notes and login on the left, Jobber form on the right. */
 .book-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  /* 40% / 60% of the row after the 54px gap. */
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: 54px;
   align-items: start;
 }
 .book-side,
 .book-side p,
-.book-intro__login {
+.book-intro__login,
+.book-privacy,
+.book-contact,
+.book-contact h3 {
   text-align: left;
 }
+.book-side > p:nth-child(2) {
+  margin-bottom: 0;
+}
 .book-intro__login {
-  margin: 0.25rem 0 0;
+  margin: 0;
+  padding: 30px 0;
 }
 .book-side h3,
 .book-contact h3 {
@@ -922,12 +930,10 @@ a.btn--back-top {
 }
 .book-contact p { margin-top: 0; }
 .book-privacy {
-  margin-top: 1.5rem;
-  text-align: left;
+  margin: 0;
 }
 .book-contact {
-  margin-top: 2rem;
-  text-align: center;
+  margin-top: 0;
 }
 .jobber-embed {
   min-width: 0;
@@ -1009,8 +1015,9 @@ a.btn--back-top {
   .links-layout__image { aspect-ratio: 343 / 199; }
 
   .book-contact,
-  .book-contact h3 {
-    text-align: center;
+  .book-contact h3,
+  .book-privacy {
+    text-align: left;
   }
   .book-contact h3 { font-size: 16px !important; }
 
