@@ -665,7 +665,7 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 376fr) minmax(0, 590fr);
   gap: 54px;
-  align-items: start;
+  align-items: center;
 }
 .links-group {
   text-align: left;
