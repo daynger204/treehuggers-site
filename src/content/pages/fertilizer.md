@@ -29,6 +29,7 @@ blocks:
     mediaFirst: true
     ratio: "461 / 516"
     ratioMobile: "343 / 339"
+    imageShift: 30
     heading: "Does Your Tree Need Deep Root Fertilization?"
     paragraphs:
       - "A tree in distress is the perfect match for a treatment like deep root fertilization. The following are often signs that your tree needs some help:"

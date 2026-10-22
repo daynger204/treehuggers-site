@@ -643,6 +643,8 @@ p {
 .stack-band > :first-child { margin-top: 0; }
 .btn-row { margin: 0.85rem 0 0; }
 .btn-row--start { text-align: start; }
+.btn-row--pad-bottom { padding-bottom: 30px; }
+.consult-note { font-size: 14px; }
 .split--photos .btn-row--pad {
   margin-top: 0;
   padding-top: 30px;
@@ -660,6 +662,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center calc(50% - var(--img-shift, 0px));
 }
 .home-card-frame { --frame: 503 / 285; --frame-m: 343 / 192; }
 .team-frame { --frame: 504 / 384; --frame-m: 343 / 234; }

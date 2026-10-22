@@ -32,6 +32,7 @@ const block = z.discriminatedUnion('type', [
     mediaFirst: z.boolean().optional(),
     ratio: z.string().optional(),
     ratioMobile: z.string().optional(),
+    imageShift: z.number().optional(),
   }),
   z.object({ type: z.literal('divider') }),
   z.object({

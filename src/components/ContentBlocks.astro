@@ -84,13 +84,16 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
                 </ul>
               )}
               {block.button && (
-                <p class="btn-row btn-row--start">
+                <p class:list={['btn-row', 'btn-row--start', { 'btn-row--pad-bottom': Boolean(block.afterParagraphs?.length) }]}>
                   <a class="btn btn--primary" href={block.button.href}>{block.button.label}</a>
                 </p>
               )}
-              {block.afterParagraphs?.map((text: string) => <p set:html={formatText(text)} />)}
+              {block.afterParagraphs?.map((text: string) => <p class="consult-note" set:html={formatText(text)} />)}
             </div>
-            <div class:list={['split__media', 'img-leaf', { 'img-frame': Boolean(block.ratio) }]} style={frameStyle(block)}>
+            <div
+              class:list={['split__media', 'img-leaf', { 'img-frame': Boolean(block.ratio) }]}
+              style={[frameStyle(block), block.imageShift ? `--img-shift: ${block.imageShift}px` : ''].filter(Boolean).join('; ') || undefined}
+            >
               <Image
                 src={img.src}
                 alt={img.alt}
