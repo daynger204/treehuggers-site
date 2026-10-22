@@ -52,7 +52,7 @@ blocks:
   - type: textImagePair
     layout: photos
     ratio: "333 / 483"
-    ratioMobile: "343 / 234"
+    ratioMobile: "343 / 351"
     paragraphs:
       - "**Our sprayers are able to reach high trees in order to ensure proper coverage.**"
       - "If you’re interested in receiving a quote from one of our tree spraying experts:"
