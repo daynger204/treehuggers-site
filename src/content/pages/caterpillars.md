@@ -48,6 +48,7 @@ blocks:
         title: "DiPel Cry toxins pest control"
         srcExtra: "feature=emb_rel_end&wmode=opaque&enablejsapi=1"
     caption: "This video shows a step-by-step process of how Cry toxins found in DiPel help control lepidopteran pests naturally, without affecting beneficial insects."
+  - type: divider
   - type: textImagePair
     layout: photos
     ratio: "333 / 483"
