@@ -607,18 +607,14 @@ p {
   --split-left: 290fr;
   --split-right: 676fr;
   --split-gap: 54px;
-  align-items: stretch;
+  align-items: center;
+  margin-top: 50px;
 }
 .split--photos .split__copy {
-  box-sizing: border-box;
-  padding-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-top: 0;
 }
 .split--photos .split__media {
-  box-sizing: border-box;
-  padding-top: 50px;
+  padding-top: 0;
 }
 .split--photos .split__copy > :last-child { margin-bottom: 0; }
 .split--how .split__copy { padding-top: 33px; }
