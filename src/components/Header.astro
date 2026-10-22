@@ -81,20 +81,19 @@ const isServices =
       <a href="/faq">FAQ</a>
       <a href="/links">Helpful Links</a>
     </nav>
+    <nav class="mobile-submenu" data-mobile-services aria-label="Services">
+      <button type="button" class="mobile-link" data-back-services>
+        <span aria-hidden="true">&lt;</span> Back
+      </button>
+      {services.map((s) => (
+        <a href={s.href}>{s.label}</a>
+      ))}
+    </nav>
     <div class="mobile-menu__ctas">
       <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
       <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
     </div>
   </div>
-
-  <nav class="mobile-submenu" data-mobile-services aria-label="Services">
-    <button type="button" class="mobile-link" data-back-services>
-      <span aria-hidden="true">&lt;</span> Back
-    </button>
-    {services.map((s) => (
-      <a href={s.href}>{s.label}</a>
-    ))}
-  </nav>
 </div>
 
 <script>
