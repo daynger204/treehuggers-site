@@ -39,6 +39,7 @@ blocks:
   - type: button
     label: "BOOK NOW"
     href: "/book-now"
+    padY: 50
   - type: image
     imageId: treeazin
     ratio: "1020 / 483"
@@ -59,7 +60,11 @@ blocks:
     rightId: signs
     ratio: "504 / 285"
     ratioMobile: "343 / 234"
+    pairedCorners: true
+    rightZoom: 1.2
+    spaceBelow: 30
   - type: paragraph
+    small: true
     text: "The adult EAB emerges from infested ash trees via D-shaped holes. EAB larvae leave s-shaped galleries as they tunnel through the layer immediately under the bark, damaging the tree’s ability to transport nutrients and water. Symptoms of EAB include a thinning of the tree’s crown, suckers that shoot up from the base of the tree, and woodpecker activity."
   - type: button
     label: "BOOK NOW"

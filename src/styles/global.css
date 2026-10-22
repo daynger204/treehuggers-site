@@ -644,7 +644,19 @@ p {
 .btn-row { margin: 0.85rem 0 0; }
 .btn-row--start { text-align: start; }
 .btn-row--pad-bottom { padding-bottom: 30px; }
-.consult-note { font-size: 14px; }
+.consult-note,
+.text-14 { font-size: 14px; }
+.btn-pad {
+  margin: 0;
+  padding-top: var(--btn-pad);
+  padding-bottom: var(--btn-pad);
+}
+.prose p:has(+ .btn-pad) { margin-bottom: 0; }
+.btn-pad + .stack-band { margin-top: 0; }
+.img-zoom img {
+  transform: scale(var(--img-zoom));
+  transform-origin: center;
+}
 .split--photos .btn-row--pad {
   margin-top: 0;
   padding-top: 30px;

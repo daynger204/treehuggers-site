@@ -32,7 +32,10 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
     switch (block.type) {
       case 'paragraph':
         return (
-          <p class:list={{ 'page-intro': block.center, 'page-intro--wide': block.center }} set:html={formatText(block.text)} />
+          <p
+            class:list={{ 'page-intro': block.center, 'page-intro--wide': block.center, 'text-14': block.small }}
+            set:html={formatText(block.text)}
+          />
         );
       case 'heading': {
         if (block.level === 2) return <h2>{block.text}</h2>;
@@ -162,10 +165,13 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
         const left = resolveImage(images, block.leftId);
         const right = resolveImage(images, block.rightId);
         const frame = frameStyle(block);
+        const leftRadius = block.pairedCorners ? 'img-leaf-tl' : 'img-leaf';
+        const rightRadius = block.pairedCorners ? 'img-leaf-br' : 'img-leaf';
+        const rightStyle = [frame, block.rightZoom ? `--img-zoom: ${block.rightZoom}` : ''].filter(Boolean).join('; ') || undefined;
         return (
-          <div class="grid-2 grid-2--images mt-2">
+          <div class="grid-2 grid-2--images mt-2" style={block.spaceBelow ? `padding-bottom: ${block.spaceBelow}px` : undefined}>
             <div>
-              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
+              <div class:list={[leftRadius, { 'img-frame': Boolean(frame) }]} style={frame}>
                 <Image
                   src={left.src}
                   alt={left.alt}
@@ -177,7 +183,7 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
               {block.leftCaption && <p class="text-center mt-1">{block.leftCaption}</p>}
             </div>
             <div>
-              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
+              <div class:list={[rightRadius, { 'img-frame': Boolean(frame), 'img-zoom': Boolean(block.rightZoom) }]} style={rightStyle}>
                 <Image
                   src={right.src}
                   alt={right.alt}
@@ -201,7 +207,10 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
         );
       case 'button':
         return (
-          <p class="text-center mt-2">
+          <p
+            class:list={['text-center', block.padY ? 'btn-pad' : 'mt-2']}
+            style={block.padY ? `--btn-pad: ${block.padY}px` : undefined}
+          >
             <a class="btn btn--primary" href={block.href}>
               {block.label}
             </a>
