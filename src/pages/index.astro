@@ -48,11 +48,11 @@ const heroImg = resolveImage(d.images, d.hero!.imageId);
     <div class="container">
       <div class="grid-2 grid-2--images">
         {
-          d.homeCards!.map((card) => {
+          d.homeCards!.map((card, index) => {
             const img = resolveImage(d.images, card.imageId);
             return (
               <div class="card-block">
-                <div class="img-wrap img-leaf img-frame home-card-frame">
+                <div class:list={['img-wrap', 'img-frame', 'home-card-frame', index % 2 === 0 ? 'img-leaf-tl' : 'img-leaf-br']}>
                   <Image
                     src={img.src}
                     alt={img.alt}
