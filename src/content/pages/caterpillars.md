@@ -47,13 +47,13 @@ blocks:
       - youtubeId: "Mqz3jzABGF8"
         title: "DiPel Cry toxins pest control"
         srcExtra: "feature=emb_rel_end&wmode=opaque&enablejsapi=1"
-    caption: "This video shows a step-by-step process of how Cry toxins found in DiPel help control lepidopteran pests naturally, without affecting beneficial insects and ..."
+    caption: "This video shows a step-by-step process of how Cry toxins found in DiPel help control lepidopteran pests naturally, without affecting beneficial insects."
   - type: textImagePair
     layout: photos
     ratio: "333 / 483"
     ratioMobile: "343 / 234"
     paragraphs:
-      - "Our sprayers are able to reach high trees in order to ensure proper coverage."
+      - "**Our sprayers are able to reach high trees in order to ensure proper coverage.**"
       - "If you’re interested in receiving a quote from one of our tree spraying experts:"
     button:
       label: "Request a Quote"

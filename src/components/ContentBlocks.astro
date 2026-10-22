@@ -140,15 +140,15 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
           <div class:list={['split', block.layout ? `split--${block.layout}` : 'split--photos']}>
             <div class="split__copy">
               {block.paragraphs.map((text: string) => <p set:html={formatText(text)} />)}
-              <p class="btn-row btn-row--start">
+              <p class="btn-row btn-row--start btn-row--pad">
                 <a class="btn btn--primary" href={block.button.href}>{block.button.label}</a>
               </p>
             </div>
             <div class="split__media grid-2 grid-2--images">
-              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
+              <div class:list={['img-leaf-tl', { 'img-frame': Boolean(frame) }]} style={frame}>
                 <Image src={left.src} alt={left.alt} widths={[400, 640, 900]} sizes="(max-width: 767px) 88vw, 333px" quality={80} />
               </div>
-              <div class:list={['img-leaf', { 'img-frame': Boolean(frame) }]} style={frame}>
+              <div class:list={['img-leaf-br', { 'img-frame': Boolean(frame) }]} style={frame}>
                 <Image src={right.src} alt={right.alt} widths={[400, 640, 900]} sizes="(max-width: 767px) 88vw, 333px" quality={80} />
               </div>
             </div>

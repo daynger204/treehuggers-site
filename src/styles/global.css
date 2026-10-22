@@ -635,6 +635,13 @@ p {
 .stack-band > :first-child { margin-top: 0; }
 .btn-row { margin: 0.85rem 0 0; }
 .btn-row--start { text-align: start; }
+.split--photos .btn-row--pad {
+  margin-top: 0;
+  padding-top: 30px;
+}
+.split--photos .split__copy p:has(+ .btn-row--pad) {
+  margin-bottom: 0;
+}
 .img-spaced { margin: 1.5rem auto; }
 .img-frame {
   width: 100%;
