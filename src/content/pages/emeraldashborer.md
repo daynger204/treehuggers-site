@@ -25,7 +25,7 @@ blocks:
   - type: paragraph
     center: true
     small: true
-    text: "The image above is of a street in Toledo, Ohio that experienced firsthand just how destructive the Emerald Ash Borer is. All this damage happened within just 3 years."
+    text: "The image above is of a street in Toledo, Ohio that experienced firsthand just how destructive the Emerald Ash Borer is.\nAll this damage happened within just 3 years."
   - type: heading
     level: 3
     text: "What is the Emerald Ash Borer?"
