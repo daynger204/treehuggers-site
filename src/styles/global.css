@@ -627,6 +627,7 @@ p {
   --split-left: 461fr;
   --split-right: 504fr;
   --split-gap: 55px;
+  align-items: center;
 }
 .prose .split__copy > :first-child,
 .prose .split__media > :first-child { margin-top: 0; }
@@ -643,6 +644,11 @@ p {
 .btn-row { margin: 0.85rem 0 0; }
 .btn-row--start { text-align: start; }
 .btn-row--pad-bottom { padding-bottom: 30px; }
+.btn-row--pad-top {
+  margin-top: 0;
+  padding-top: var(--btn-pad-top);
+}
+.split__copy :is(p, ul):has(+ .btn-row--pad-top) { margin-bottom: 0; }
 .consult-note,
 .text-14 { font-size: 14px; }
 .btn-pad {

@@ -87,14 +87,20 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
                 </ul>
               )}
               {block.button && (
-                <p class:list={['btn-row', 'btn-row--start', { 'btn-row--pad-bottom': Boolean(block.afterParagraphs?.length) }]}>
+                <p
+                  class:list={['btn-row', 'btn-row--start', {
+                    'btn-row--pad-bottom': Boolean(block.afterParagraphs?.length),
+                    'btn-row--pad-top': Boolean(block.button.padTop),
+                  }]}
+                  style={block.button.padTop ? `--btn-pad-top: ${block.button.padTop}px` : undefined}
+                >
                   <a class="btn btn--primary" href={block.button.href}>{block.button.label}</a>
                 </p>
               )}
               {block.afterParagraphs?.map((text: string) => <p class="consult-note" set:html={formatText(text)} />)}
             </div>
             <div
-              class:list={['split__media', 'img-leaf', { 'img-frame': Boolean(block.ratio) }]}
+              class:list={['split__media', block.corners === 'tl' ? 'img-leaf-tl' : block.corners === 'br' ? 'img-leaf-br' : 'img-leaf', { 'img-frame': Boolean(block.ratio) }]}
               style={[frameStyle(block), block.imageShift ? `--img-shift: ${block.imageShift}px` : ''].filter(Boolean).join('; ') || undefined}
             >
               <Image

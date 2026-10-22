@@ -25,6 +25,7 @@ blocks:
     mediaFirst: true
     ratio: "504 / 549"
     ratioMobile: "343 / 304"
+    corners: tl
     heading: "Benefits of Immunization from Treehuggers:"
     paragraphs:
       - '<strong>Healthier Trees:</strong> Our immunization process enhances the natural defenses of elms, ensuring they remain a vibrant part of our urban landscape.'
@@ -34,11 +35,13 @@ blocks:
     button:
       label: "BOOK NOW"
       href: "/book-now"
+      padTop: 30
   - type: imagePair
     leftId: bark
     rightId: marked
     ratio: "504 / 351"
     ratioMobile: "343 / 269"
+    pairedCorners: true
     leftCaption: "Elm tree damage"
     rightCaption: "Elm tree marked for removal"
   - type: paragraph

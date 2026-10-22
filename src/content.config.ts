@@ -29,7 +29,11 @@ const block = z.discriminatedUnion('type', [
     heading: z.string().optional(),
     paragraphs: z.array(z.string()),
     items: z.array(z.string()).optional(),
-    button: z.object({ label: z.string(), href: z.string() }).optional(),
+    button: z.object({
+      label: z.string(),
+      href: z.string(),
+      padTop: z.number().optional(),
+    }).optional(),
     afterParagraphs: z.array(z.string()).optional(),
     tightTop: z.boolean().optional(),
     spaceAfter: z.number().optional(),
@@ -38,6 +42,7 @@ const block = z.discriminatedUnion('type', [
     ratio: z.string().optional(),
     ratioMobile: z.string().optional(),
     imageShift: z.number().optional(),
+    corners: z.enum(['leaf', 'tl', 'br']).optional(),
   }),
   z.object({ type: z.literal('divider') }),
   z.object({
