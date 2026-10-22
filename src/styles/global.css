@@ -654,6 +654,10 @@ p {
 .prose .split__media .video-wrap:last-of-type { margin-bottom: 0.35rem; }
 .stack-band { margin: 1.35rem 0; }
 .stack-band > :first-child { margin-top: 0; }
+.stack-band--spaced {
+  margin-bottom: 0;
+  padding-bottom: var(--band-space);
+}
 .btn-row { margin: 0.85rem 0 0; }
 .btn-row--start { text-align: start; }
 .btn-row--pad-bottom { padding-bottom: 30px; }

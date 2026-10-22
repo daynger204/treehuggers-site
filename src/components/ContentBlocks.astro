@@ -34,8 +34,9 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
         return (
           <p
             class:list={{
-              'page-intro': block.center,
-              'page-intro--wide': block.center,
+              'page-intro': block.center && !block.small,
+              'page-intro--wide': block.center && !block.small,
+              'text-center': block.center && block.small,
               'text-14': block.small,
               'text-accent': block.accent,
             }}
@@ -58,7 +59,7 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
             ? `max-width: ${block.maxWidth}px; margin: 1.5rem auto;`
             : undefined;
         return (
-          <div class="stack-band">
+          <div class:list={['stack-band', { 'stack-band--spaced': Boolean(block.spaceBelow) }]} style={block.spaceBelow ? `--band-space: ${block.spaceBelow}px` : undefined}>
             <div class:list={['img-leaf', { 'img-frame': framed, 'img-spaced': !framed }]} style={style}>
               <Image
                 src={img.src}

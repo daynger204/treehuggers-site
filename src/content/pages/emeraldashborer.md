@@ -23,9 +23,9 @@ blocks:
     ratio: "1020 / 384"
     ratioMobile: "343 / 164"
   - type: paragraph
-    text: "The image above is of a street in Toledo, Ohio that experienced firsthand just how destructive the Emerald Ash Borer is."
-  - type: paragraph
-    text: "All this damage happened within just 3 years."
+    center: true
+    small: true
+    text: "The image above is of a street in Toledo, Ohio that experienced firsthand just how destructive the Emerald Ash Borer is. All this damage happened within just 3 years."
   - type: heading
     level: 3
     text: "What is the Emerald Ash Borer?"
@@ -44,6 +44,7 @@ blocks:
     imageId: treeazin
     ratio: "1020 / 483"
     ratioMobile: "343 / 199"
+    spaceBelow: 30
   - type: paragraph
     text: "Treehuggers has been helping Manitoba communities plan for, and respond to, the Emerald Ash Borer invasion. Our Tree Care Specialists have almost 15 years of experience in detecting, preventing, and treating trees for diseases and insects, such as EAB."
   - type: paragraph

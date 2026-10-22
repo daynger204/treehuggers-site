@@ -24,6 +24,7 @@ const block = z.discriminatedUnion('type', [
     maxWidth: z.number().optional(),
     ratio: z.string().optional(),
     ratioMobile: z.string().optional(),
+    spaceBelow: z.number().optional(),
   }),
   z.object({
     type: z.literal('imageText'),
