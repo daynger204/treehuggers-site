@@ -1089,6 +1089,7 @@ a.btn--back-top {
     min-height: 0;
     order: -1;
   }
+  .site-footer a.btn--back-top { margin-bottom: 0; }
   .site-footer a.btn--back-top {
     color: var(--color-green) !important;
     background: var(--color-cream) !important;
