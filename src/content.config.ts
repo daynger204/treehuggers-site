@@ -13,6 +13,8 @@ const block = z.discriminatedUnion('type', [
     text: z.string(),
     center: z.boolean().optional(),
     small: z.boolean().optional(),
+    accent: z.boolean().optional(),
+    padTop: z.number().optional(),
   }),
   z.object({ type: z.literal('heading'), level: z.union([z.literal(2), z.literal(3), z.literal(4)]), text: z.string() }),
   z.object({
@@ -75,6 +77,7 @@ const block = z.discriminatedUnion('type', [
     ratioMobile: z.string().optional(),
     pairedCorners: z.boolean().optional(),
     rightZoom: z.number().optional(),
+    spaceAbove: z.number().optional(),
     spaceBelow: z.number().optional(),
   }),
   z.object({ type: z.literal('list'), items: z.array(z.string()) }),

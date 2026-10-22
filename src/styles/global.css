@@ -629,6 +629,19 @@ p {
   --split-gap: 55px;
   align-items: center;
 }
+.split--benefits:has(+ .image-pair) { margin-bottom: 0; }
+.image-pair {
+  margin-top: 0;
+  padding-top: var(--pair-space);
+}
+.image-pair > div > p:last-child { margin-bottom: 0; }
+.text-accent {
+  margin-top: 0;
+  padding-top: var(--text-pad, 0px);
+  text-align: center;
+  font-weight: 700;
+  color: #006b37;
+}
 .prose .split__copy > :first-child,
 .prose .split__media > :first-child { margin-top: 0; }
 .prose .split__media.img-leaf,

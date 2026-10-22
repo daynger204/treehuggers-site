@@ -33,7 +33,13 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
       case 'paragraph':
         return (
           <p
-            class:list={{ 'page-intro': block.center, 'page-intro--wide': block.center, 'text-14': block.small }}
+            class:list={{
+              'page-intro': block.center,
+              'page-intro--wide': block.center,
+              'text-14': block.small,
+              'text-accent': block.accent,
+            }}
+            style={block.padTop ? `--text-pad: ${block.padTop}px` : undefined}
             set:html={formatText(block.text)}
           />
         );
@@ -174,8 +180,15 @@ function frameStyle(block: { ratio?: string; ratioMobile?: string }) {
         const leftRadius = block.pairedCorners ? 'img-leaf-tl' : 'img-leaf';
         const rightRadius = block.pairedCorners ? 'img-leaf-br' : 'img-leaf';
         const rightStyle = [frame, block.rightZoom ? `--img-zoom: ${block.rightZoom}` : ''].filter(Boolean).join('; ') || undefined;
+        const pairStyle = [
+          block.spaceAbove ? `--pair-space: ${block.spaceAbove}px` : '',
+          block.spaceBelow ? `padding-bottom: ${block.spaceBelow}px` : '',
+        ].filter(Boolean).join('; ') || undefined;
         return (
-          <div class="grid-2 grid-2--images mt-2" style={block.spaceBelow ? `padding-bottom: ${block.spaceBelow}px` : undefined}>
+          <div
+            class:list={['grid-2', 'grid-2--images', block.spaceAbove ? 'image-pair' : 'mt-2']}
+            style={pairStyle}
+          >
             <div>
               <div class:list={[leftRadius, { 'img-frame': Boolean(frame) }]} style={frame}>
                 <Image

@@ -42,8 +42,11 @@ blocks:
     ratio: "504 / 351"
     ratioMobile: "343 / 269"
     pairedCorners: true
+    spaceAbove: 30
     leftCaption: "Elm tree damage"
     rightCaption: "Elm tree marked for removal"
   - type: paragraph
+    accent: true
+    padTop: 30
     text: "Choose Treehuggers for DED immunization and join us in protecting our elms for generations to come."
 ---
