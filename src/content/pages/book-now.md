@@ -5,7 +5,7 @@ canonicalPath: "/book-now"
 ogTitle: "Treehuggers —  Book an Appointment Now"
 h1: "Online Booking Request"
 bookNow:
-  newCustomers: "NEW CUSTOMERS: please enter your information below. We'll get back to you as soon as possible!"
+  newCustomers: "NEW CUSTOMERS: please enter your information in the form. We'll get back to you as soon as possible!"
   existingCustomers: "EXISTING CUSTOMERS: please login to your account using the green button."
   privacy: "We will not sell or share the information provided. We take your data and its security very seriously, it's safe with us."
   emailLabel: "Email Inquiries"

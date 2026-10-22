@@ -12,26 +12,26 @@ const b = d.bookNow!;
   <section class="page-section inner-hero-space">
     <div class="container">
       <h1 class="page-title">{d.h1}</h1>
-      <div class="book-intro">
+      <div class="book-layout">
         <div class="book-side">
           <p set:html={b.newCustomers.replace(/^(NEW CUSTOMERS:)/, '<strong>$1</strong>')} />
           <p set:html={b.existingCustomers.replace(/^(EXISTING CUSTOMERS:)/, '<strong>$1</strong>')} />
+          <p class="book-intro__login">
+            <a class="btn btn--primary" href={b.clientLoginUrl} target="_blank" rel="noopener noreferrer">{b.clientLoginLabel}</a>
+          </p>
         </div>
-        <p class="book-intro__login">
-          <a class="btn btn--primary" href={b.clientLoginUrl} target="_blank" rel="noopener noreferrer">{b.clientLoginLabel}</a>
-        </p>
+        <div class="jobber-embed">
+          <div id="473666f9-f1da-40ea-b1b6-357fe97c9008" class="jobber-inline-work-request"></div>
+          <link rel="stylesheet" media="screen" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" />
+          <script
+            is:inline
+            src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
+            clienthub_id="473666f9-f1da-40ea-b1b6-357fe97c9008"
+            form_url="https://clienthub.getjobber.com/client_hubs/473666f9-f1da-40ea-b1b6-357fe97c9008/public/work_request/embedded_work_request_form"
+          ></script>
+        </div>
       </div>
       <p class="book-privacy">{b.privacy}</p>
-      <div class="jobber-embed">
-        <div id="473666f9-f1da-40ea-b1b6-357fe97c9008" class="jobber-inline-work-request"></div>
-        <link rel="stylesheet" media="screen" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" />
-        <script
-          is:inline
-          src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
-          clienthub_id="473666f9-f1da-40ea-b1b6-357fe97c9008"
-          form_url="https://clienthub.getjobber.com/client_hubs/473666f9-f1da-40ea-b1b6-357fe97c9008/public/work_request/embedded_work_request_form"
-        ></script>
-      </div>
       <div class="book-contact">
         <h3>{b.emailLabel}</h3>
         <p><a href={`mailto:${b.email}`}>{b.email}</a></p>
