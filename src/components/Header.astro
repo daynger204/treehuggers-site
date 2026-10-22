@@ -72,17 +72,19 @@ const isServices =
     </button>
   </div>
 
-  <nav class="mobile-menu__nav" data-mobile-root aria-label="Mobile">
-    <a href="/">Home</a>
-    <button type="button" class="mobile-link" data-open-services>
-      Services <span aria-hidden="true">&gt;</span>
-    </button>
-    <a href="/faq">FAQ</a>
-    <a href="/links">Helpful Links</a>
-  </nav>
-  <div class="mobile-menu__ctas">
-    <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
-    <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
+  <div class="mobile-menu__cluster">
+    <nav class="mobile-menu__nav" data-mobile-root aria-label="Mobile">
+      <a href="/">Home</a>
+      <button type="button" class="mobile-link" data-open-services>
+        Services <span aria-hidden="true">&gt;</span>
+      </button>
+      <a href="/faq">FAQ</a>
+      <a href="/links">Helpful Links</a>
+    </nav>
+    <div class="mobile-menu__ctas">
+      <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
+      <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
+    </div>
   </div>
 
   <nav class="mobile-submenu" data-mobile-services aria-label="Services">
