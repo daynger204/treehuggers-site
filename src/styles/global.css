@@ -922,6 +922,7 @@ a.btn--back-top {
   background: var(--color-cream) !important;
   color: var(--color-green) !important;
   margin-top: auto;
+  margin-bottom: 50px;
 }
 .site-footer a.btn--back-top:hover {
   opacity: 0.9;
