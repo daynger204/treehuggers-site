@@ -395,7 +395,7 @@ p {
 .page-section--tight { padding: 2.5rem 0; }
 .page-title {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
   font-family: var(--font-display);
   font-weight: 700;
   font-synthesis: none;
@@ -590,7 +590,7 @@ p {
 .prose {
   max-width: none;
 }
-.prose > .page-title { margin-bottom: 50px; }
+.prose > .page-title { margin-bottom: 75px; }
 .prose h3 {
   margin-top: 1.75rem;
 }
