@@ -641,6 +641,9 @@ p {
   --split-right: 461fr;
   --split-gap: 97px;
 }
+.split--half.split--media-first {
+  margin: 4rem;
+}
 .split--benefits {
   --split-left: 461fr;
   --split-right: 504fr;
