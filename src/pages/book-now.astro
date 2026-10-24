@@ -16,15 +16,17 @@ const b = d.bookNow!;
         <div class="book-side">
           <p set:html={b.newCustomers.replace(/^(NEW CUSTOMERS:)/, '<strong>$1</strong>')} />
           <p set:html={b.existingCustomers.replace(/^(EXISTING CUSTOMERS:)/, '<strong>$1</strong>')} />
-          <p class="mt-1">
+          <p class="book-intro__login">
             <a class="btn btn--primary" href={b.clientLoginUrl} target="_blank" rel="noopener noreferrer">{b.clientLoginLabel}</a>
           </p>
-          <p class="mt-2">{b.privacy}</p>
-          <h3>{b.emailLabel}</h3>
-          <p><a href={`mailto:${b.email}`}>{b.email}</a></p>
-          <h3>{b.contactLabel}</h3>
-          <p><a href={b.phoneHref}>{b.phone}</a></p>
-          <p class="mt-2">{b.areaServed}</p>
+          <p class="book-privacy">{b.privacy}</p>
+          <div class="book-contact">
+            <h3>{b.emailLabel}</h3>
+            <p><a href={`mailto:${b.email}`}>{b.email}</a></p>
+            <h3>{b.contactLabel}</h3>
+            <p><a href={b.phoneHref}>{b.phone}</a></p>
+            <p class="mt-2">{b.areaServed}</p>
+          </div>
         </div>
         <div class="jobber-embed">
           <div id="473666f9-f1da-40ea-b1b6-357fe97c9008" class="jobber-inline-work-request"></div>

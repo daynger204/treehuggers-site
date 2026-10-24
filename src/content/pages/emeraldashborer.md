@@ -20,10 +20,12 @@ images:
 blocks:
   - type: image
     imageId: beforeAfter
+    ratio: "1020 / 384"
+    ratioMobile: "343 / 164"
   - type: paragraph
-    text: "The image above is of a street in Toledo, Ohio that experienced firsthand just how destructive the Emerald Ash Borer is."
-  - type: paragraph
-    text: "All this damage happened within just 3 years."
+    center: true
+    small: true
+    text: "The image above is of a street in Toledo, Ohio that experienced firsthand just how destructive the Emerald Ash Borer is.\nAll this damage happened within just 3 years."
   - type: heading
     level: 3
     text: "What is the Emerald Ash Borer?"
@@ -37,9 +39,12 @@ blocks:
   - type: button
     label: "BOOK NOW"
     href: "/book-now"
+    padY: 50
   - type: image
     imageId: treeazin
-    maxWidth: 640
+    ratio: "1020 / 483"
+    ratioMobile: "343 / 199"
+    spaceBelow: 30
   - type: paragraph
     text: "Treehuggers has been helping Manitoba communities plan for, and respond to, the Emerald Ash Borer invasion. Our Tree Care Specialists have almost 15 years of experience in detecting, preventing, and treating trees for diseases and insects, such as EAB."
   - type: paragraph
@@ -54,7 +59,13 @@ blocks:
   - type: imagePair
     leftId: beetle
     rightId: signs
+    ratio: "504 / 285"
+    ratioMobile: "343 / 234"
+    pairedCorners: true
+    rightZoom: 1.2
+    spaceBelow: 30
   - type: paragraph
+    small: true
     text: "The adult EAB emerges from infested ash trees via D-shaped holes. EAB larvae leave s-shaped galleries as they tunnel through the layer immediately under the bark, damaging the tree’s ability to transport nutrients and water. Symptoms of EAB include a thinning of the tree’s crown, suckers that shoot up from the base of the tree, and woodpecker activity."
   - type: button
     label: "BOOK NOW"

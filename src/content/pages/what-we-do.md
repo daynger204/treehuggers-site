@@ -23,7 +23,6 @@ services:
   - label: "Two-Lined Chestnut Borer"
   - label: "Deep Root Fertilization"
     href: "/fertilizer"
-  - label: "Anthracnose Treatment"
   - label: "Plant, Pest and Soil Laboratory Diagnostic Testing"
 quote:
   text: "Treehuggers has kept my trees healthy and my canopy beautiful. I could not be happier with the service!"

@@ -19,28 +19,34 @@ blocks:
     text: "At Treehuggers, we understand the value of each elm tree in our community. Dutch Elm Disease (DED) is a serious threat to these majestic trees, caused by the fungus Ophiostoma novo-ulmi. Spread by elm bark beetles, DED leads to wilt, defoliation, and ultimately, the death of the tree."
   - type: paragraph
     text: "Our immunization services offer hope for Elms trees. This not only extends the life of the trees but also preserves the natural beauty and biodiversity of our neighbourhoods."
-  - type: image
+  - type: imageText
     imageId: half
-    maxWidth: 560
-  - type: heading
-    level: 3
-    text: "Benefits of Immunization from Treehuggers:"
-  - type: paragraph
-    text: "<strong>Healthier Trees:</strong> Our immunization process enhances the natural defenses of elms, ensuring they remain a vibrant part of our urban landscape."
-  - type: paragraph
-    text: "<strong>Cost-Effective:</strong> Treating trees is more economical than removing diseased trees, saving our community significant costs."
-  - type: paragraph
-    text: "<strong>Eco-Friendly:</strong> We use a non-toxic, sustainable approach that’s less harmful to the environment compared to traditional fungicides."
-  - type: paragraph
-    text: "<strong>Three Year Protection:</strong> Our fungicide provides continuous protection for three years."
-  - type: button
-    label: "BOOK NOW"
-    href: "/book-now"
+    layout: benefits
+    mediaFirst: true
+    ratio: "504 / 549"
+    ratioMobile: "343 / 304"
+    corners: tl
+    heading: "Benefits of Immunization from Treehuggers:"
+    paragraphs:
+      - '<strong>Healthier Trees:</strong> Our immunization process enhances the natural defenses of elms, ensuring they remain a vibrant part of our urban landscape.'
+      - '<strong>Cost-Effective:</strong> Treating trees is more economical than removing diseased trees, saving our community significant costs.'
+      - '<strong>Eco-Friendly:</strong> We use a non-toxic, sustainable approach that’s less harmful to the environment compared to traditional fungicides.'
+      - '<strong>Three Year Protection:</strong> Our fungicide provides continuous protection for three years.'
+    button:
+      label: "BOOK NOW"
+      href: "/book-now"
+      padTop: 30
   - type: imagePair
     leftId: bark
     rightId: marked
+    ratio: "504 / 351"
+    ratioMobile: "343 / 269"
+    pairedCorners: true
+    spaceAbove: 30
     leftCaption: "Elm tree damage"
     rightCaption: "Elm tree marked for removal"
   - type: paragraph
+    accent: true
+    padTop: 30
     text: "Choose Treehuggers for DED immunization and join us in protecting our elms for generations to come."
 ---
