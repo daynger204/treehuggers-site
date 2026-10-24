@@ -1046,7 +1046,11 @@ a.btn--back-top {
     --gutter: 6vw;
   }
   h1 { font-size: 44px !important; }
-  .page-title { font-size: 37px !important; }
+  .page-title,
+  .prose > .page-title {
+    font-size: 37px !important;
+    margin-bottom: 50px;
+  }
   .hero .hero-sub { font-size: 22px !important; }
 
   .grid-2,
