@@ -26,14 +26,25 @@ const year = new Date().getFullYear();
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/></svg>
         </a>
       </div>
-      <a class="btn btn--back-top" href="#site-header">BACK TO TOP</a>
+      <a class="btn btn--back-top" href="#">Back To Top</a>
     </div>
 
     <div class="site-footer__right">
       <p><a href="tel:+12042970767">(204) 297-0767</a></p>
       <p><a href="mailto:info@treehuggerswinnipeg.com">info@treehuggerswinnipeg.com</a></p>
       <p class="footer-service-area">Serving Winnipeg and Southern Manitoba</p>
-      <p class="footer-copy">&copy; {year} Treehuggers Winnipeg.<br />All Rights Reserved.</p>
+      <p class="footer-copy">&copy; {year} Treehuggers Winnipeg. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
+
+<script>
+  // Smooth-scroll "back" links that point at the top of the page.
+  document.querySelectorAll('a[href="#"]').forEach((link) => {
+    if (!link.textContent || !link.textContent.toLowerCase().includes('back')) return;
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
