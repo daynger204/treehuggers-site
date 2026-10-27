@@ -880,7 +880,7 @@ p {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr max-content;
   gap: 2rem;
   width: min(var(--site-max), calc(100% - 2 * var(--gutter)));
   margin: 0 auto;
@@ -967,6 +967,7 @@ a.btn--back-top {
   margin-top: 0.75rem !important;
   font-weight: 500;
   opacity: 0.95;
+  white-space: nowrap;
 }
 .footer-copy {
   margin-top: 1rem !important;
@@ -1119,6 +1120,9 @@ a.btn--back-top {
   .site-footer__center {
     min-height: 0;
     order: -1;
+  }
+  .footer-service-area {
+    font-size: clamp(13.5px, 4.3vw, 16px);
   }
   .site-footer a.btn--back-top { margin-bottom: 0; }
   .site-footer a.btn--back-top {
