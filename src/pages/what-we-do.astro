@@ -17,7 +17,7 @@ const team = resolveImage(d.images, 'team');
       <div class="page-intro">
         {d.blocks.filter((b) => b.type === 'paragraph').map((b) => <p>{b.type === 'paragraph' && b.text}</p>)}
       </div>
-      <div class="grid-2 grid-2--top mt-2">
+      <div class="grid-2 grid-2--top services-band mt-2">
         <div class="text-center">
           <h3>OUR SERVICES</h3>
           <ul class="services-list">
@@ -31,8 +31,8 @@ const team = resolveImage(d.images, 'team');
             }
           </ul>
         </div>
-        <div class="img-leaf">
-          <Image src={team.src} alt={team.alt} widths={[500, 800, 1200]} sizes="(max-width: 767px) 90vw, 45vw" quality={80} />
+        <div class="img-leaf img-frame team-frame">
+          <Image src={team.src} alt={team.alt} widths={[500, 800, 1200]} sizes="(max-width: 767px) 88vw, 504px" quality={80} />
         </div>
       </div>
       {

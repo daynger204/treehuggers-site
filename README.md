@@ -37,9 +37,8 @@ Node.js **≥ 22.22** required.
 ## Fonts
 
 - **Body:** Work Sans (Google Fonts)
-- **Display / buttons:** Fraunces (Google Fonts) standing in for New Spirit.
-  New Spirit is commercial; a web licence was not verified in the capture.
-  Swap later by changing `--font-display` in `src/styles/global.css` and the Google Fonts link in `BaseLayout.astro`.
+- **Display / buttons:** New Spirit SemiBold, self-hosted in `public/fonts/` (`new-spirit-semi-bold.woff2` and `.otf`).
+  **LICENCE UNVERIFIED.** The files are the face Jay's Squarespace custom CSS loads (`new-spirit-semi-bold.otf`, Newlyn, © 2020) and the woff2 Squarespace generated from it. The owner is asking Jay about a web licence. This is not a confirmed licensed embed. Do not keep using the Squarespace CDN URL — it goes away when the Squarespace site is cancelled.
 
 ## Tracking
 

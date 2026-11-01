@@ -35,7 +35,7 @@ const isServices =
           data-folder-trigger
         >
           Services
-          <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
         </button>
         <div class="nav-folder__panel" role="menu">
           {services.map((s) => (
@@ -53,8 +53,8 @@ const isServices =
     </div>
 
     <button type="button" class="burger" aria-label="Open menu" data-burger>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 7h16M4 12h16M4 17h16" />
+      <svg viewBox="0 0 35 35" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M0 6.5h35M0 17.5h35M0 28.5h35" />
       </svg>
     </button>
   </div>
@@ -72,27 +72,28 @@ const isServices =
     </button>
   </div>
 
-  <nav class="mobile-menu__nav" data-mobile-root aria-label="Mobile">
-    <a href="/">Home</a>
-    <button type="button" class="mobile-link" data-open-services>
-      Services <span aria-hidden="true">&gt;</span>
-    </button>
-    <a href="/faq">FAQ</a>
-    <a href="/links">Helpful Links</a>
-  </nav>
-  <div class="mobile-menu__ctas">
-    <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
-    <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
+  <div class="mobile-menu__cluster">
+    <nav class="mobile-menu__nav" data-mobile-root aria-label="Mobile">
+      <a href="/">Home</a>
+      <button type="button" class="mobile-link" data-open-services>
+        Services <span aria-hidden="true">&gt;</span>
+      </button>
+      <a href="/faq">FAQ</a>
+      <a href="/links">Helpful Links</a>
+    </nav>
+    <nav class="mobile-submenu" data-mobile-services aria-label="Services">
+      <button type="button" class="mobile-link" data-back-services>
+        <span aria-hidden="true">&lt;</span> Back
+      </button>
+      {services.map((s) => (
+        <a href={s.href}>{s.label}</a>
+      ))}
+    </nav>
+    <div class="mobile-menu__ctas">
+      <a class="btn btn--header-book" href="/book-now">BOOK NOW</a>
+      <a class="btn btn--header-login" href={clientLogin} target="_blank" rel="noopener noreferrer">CLIENT LOGIN</a>
+    </div>
   </div>
-
-  <nav class="mobile-submenu" data-mobile-services aria-label="Services">
-    <button type="button" class="mobile-link" data-back-services>
-      <span aria-hidden="true">&lt;</span> Back
-    </button>
-    {services.map((s) => (
-      <a href={s.href}>{s.label}</a>
-    ))}
-  </nav>
 </div>
 
 <script>
