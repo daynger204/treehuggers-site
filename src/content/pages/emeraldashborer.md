@@ -35,7 +35,7 @@ blocks:
     level: 3
     text: "Advantage of our Trunk Injections"
   - type: paragraph
-    text: 'Trunk injections are the most effective method for controlling the Emerald Ash Borer. Treehuggers exclusively uses EcoJet trunk injection equipment to inject <a href="http://www.bioforest.ca/index.cfm?fuseaction=content&amp;menuid=12&amp;pageid=1012" target="_blank" rel="noopener noreferrer">BioForest’s TreeAzin</a> product directly inside ash trees. With over 15 years of experience, our trunk injection systems, and technicians are proven to give the best results when protecting ash trees from the Borer.'
+    text: 'Trunk injections are the most effective method for controlling the Emerald Ash Borer. Treehuggers uses EcoJet trunk injection equipment to inject <a href="http://www.bioforest.ca/index.cfm?fuseaction=content&amp;menuid=12&amp;pageid=1012" target="_blank" rel="noopener noreferrer">BioForest’s TreeAzin</a> product directly inside ash trees. With over 15 years of experience, our trunk injection systems, and technicians are proven to give the best results when protecting ash trees from the Borer.'
   - type: button
     label: "BOOK NOW"
     href: "/book-now"
