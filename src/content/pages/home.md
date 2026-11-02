@@ -16,7 +16,7 @@ images:
     alt: "Bright green caterpillar crawling on a leaf"
 hero:
   imageId: hero
-  subhead: "Specializing in Urban Plant Health, Disease Management, and Tree Pest Control"
+  subhead: "Specializing in Urban Tree and Plant Health, Disease Management, and Tree Pest Control"
   primaryCta:
     label: "Services"
     href: "/what-we-do"
